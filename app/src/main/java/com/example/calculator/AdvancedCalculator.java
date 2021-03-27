@@ -77,7 +77,7 @@ public class AdvancedCalculator extends AppCompatActivity {
                 BigDecimal result;
                 try {
                     result = new BigDecimal(String.valueOf(sin(Double.parseDouble(viewModel.getDisplayText().getValue().toString()))), MATH_CONTEXT);
-                    viewModel.setDisplayText(result.stripTrailingZeros().toString());
+                    viewModel.setDisplayText(result.stripTrailingZeros().toEngineeringString());
                 } catch (Exception e) {
                     displayInvalidInputToast();
                 }
@@ -92,7 +92,7 @@ public class AdvancedCalculator extends AppCompatActivity {
                 BigDecimal result;
                 try {
                     result = new BigDecimal(String.valueOf(cos(Double.parseDouble(viewModel.getDisplayText().getValue().toString()))), MATH_CONTEXT);
-                    viewModel.setDisplayText(result.stripTrailingZeros().toString());
+                    viewModel.setDisplayText(result.stripTrailingZeros().toEngineeringString());
                 } catch (Exception e) {
                     displayInvalidInputToast();
                 }
@@ -107,7 +107,7 @@ public class AdvancedCalculator extends AppCompatActivity {
                 BigDecimal result;
                 try {
                     result = new BigDecimal(String.valueOf(tan(Double.parseDouble(viewModel.getDisplayText().getValue().toString()))), MATH_CONTEXT);
-                    viewModel.setDisplayText(result.stripTrailingZeros().toString());
+                    viewModel.setDisplayText(result.stripTrailingZeros().toEngineeringString());
                 } catch (Exception e) {
                     displayInvalidInputToast();
                 }
@@ -123,7 +123,7 @@ public class AdvancedCalculator extends AppCompatActivity {
                     BigDecimal result;
                     try {
                         result = new BigDecimal(String.valueOf(log(Double.parseDouble(viewModel.getDisplayText().getValue().toString()))), MATH_CONTEXT);
-                        viewModel.setDisplayText(result.stripTrailingZeros().toString());
+                        viewModel.setDisplayText(result.stripTrailingZeros().toEngineeringString());
                     } catch (Exception e) {
                         displayInvalidInputToast();
                     }
@@ -142,7 +142,7 @@ public class AdvancedCalculator extends AppCompatActivity {
                     BigDecimal result;
                     try {
                         result = new BigDecimal(String.valueOf(log10(Double.parseDouble(viewModel.getDisplayText().getValue().toString()))), MATH_CONTEXT);
-                        viewModel.setDisplayText(result.stripTrailingZeros().toString());
+                        viewModel.setDisplayText(result.stripTrailingZeros().toEngineeringString());
                     } catch (Exception e) {
                         displayInvalidInputToast();
                     }
@@ -161,7 +161,7 @@ public class AdvancedCalculator extends AppCompatActivity {
                     BigDecimal result;
                     try {
                         result = new BigDecimal(String.valueOf(sqrt(Double.parseDouble(viewModel.getDisplayText().getValue().toString()))), MATH_CONTEXT);
-                        viewModel.setDisplayText(result.stripTrailingZeros().toString());
+                        viewModel.setDisplayText(result.stripTrailingZeros().toEngineeringString());
                     } catch (Exception e) {
                         displayInvalidInputToast();
                     }
@@ -178,7 +178,7 @@ public class AdvancedCalculator extends AppCompatActivity {
                 BigDecimal result;
                 try {
                     result = new BigDecimal(String.valueOf(pow(Double.parseDouble(viewModel.getDisplayText().getValue().toString()), 2)), MATH_CONTEXT);
-                    viewModel.setDisplayText(result.stripTrailingZeros().toString());
+                    viewModel.setDisplayText(result.stripTrailingZeros().toEngineeringString());
                 } catch (Exception e) {
                     displayInvalidInputToast();
                 }

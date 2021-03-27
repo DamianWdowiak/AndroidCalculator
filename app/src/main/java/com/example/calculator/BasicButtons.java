@@ -124,10 +124,11 @@ public class BasicButtons extends Fragment implements View.OnClickListener {
         dotBtn.setOnClickListener(v -> {
             String displayValue = viewModel.getDisplayText().getValue().toString();
             if (Character.isDigit(displayValue.charAt(displayValue.length() - 1))) {
-                if (!displayValue.contains(".")) {
+                if (!displayValue.contains(".") && !displayValue.contains("E")) {
                     viewModel.setDisplayText(displayValue + ".");
                 }
             }
+            viewModel.setOperationAllowed(true);
         });
         divideBtn.setOnClickListener(this);
         num7Btn.setOnClickListener(this);
@@ -186,7 +187,7 @@ public class BasicButtons extends Fragment implements View.OnClickListener {
             } else {
                 viewModel.setOperationAllowed(true);
                 viewModel.setDisplayText(buttonText);
-                if(viewModel.getOperation().equals("=")){
+                if (viewModel.getOperation().equals("=")) {
                     viewModel.setOperationAllowed(false);
                 }
             }
@@ -229,9 +230,12 @@ public class BasicButtons extends Fragment implements View.OnClickListener {
                                 viewModel.setResult(viewModel.getResult().divide(temp, MATH_CONTEXT));
                             }
                             break;
-
                     }
-                    viewModel.setDisplayText(viewModel.getResult().toString());
+                    if (viewModel.getOperation().equals("=")) {
+                        viewModel.setResult(temp);
+                    } else {
+                        viewModel.setDisplayText(viewModel.getResult().toEngineeringString());
+                    }
                 } else {
                     viewModel.setResult(temp);
                 }
@@ -242,6 +246,7 @@ public class BasicButtons extends Fragment implements View.OnClickListener {
             }
         }
     }
+
     private void displayInvalidInputToast() {
         CharSequence text = "Invalid input";
         int duration = Toast.LENGTH_SHORT;
